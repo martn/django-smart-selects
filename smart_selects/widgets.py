@@ -220,6 +220,14 @@ class ChainedSelectMultiple(JqueryMediaMixin, SelectMultiple):
         else:
             chain_field = self.chain_field
 
+        # Fixes TypeError: Object of type 'UUID' is not JSON serializable
+        # in case value contains list of UUID()
+        if isinstance(value, list):
+            try:
+                json.dumps(value)
+            except TypeError:
+                value = [str(x) for x in value]
+
         view_name = 'chained_filter'
 
         kwargs = {
