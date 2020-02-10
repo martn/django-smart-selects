@@ -2,7 +2,7 @@ from django.apps import apps
 from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 from django.http import JsonResponse
-from django.utils.six import iteritems
+# from django.utils.six import iteritems
 from django.views.decorators.cache import never_cache
 
 from smart_selects.db_fields import (ChainedManyToManyField, ChainedForeignKey)
@@ -43,7 +43,7 @@ def do_filter(qs, keywords, exclude=False):
     Support for multiple-selected parent values.
     """
     and_q = Q()
-    for keyword, value in iteritems(keywords):
+    for keyword, value in iter(keywords.items()):
         try:
             values = value.split(",")
             if len(values) > 0:
