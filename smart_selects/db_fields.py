@@ -3,7 +3,7 @@ from django.db.models.fields.related import (
     ForeignKey, ManyToManyField, RECURSIVE_RELATIONSHIP_CONSTANT
 )
 from django.db import models
-from django.utils import six
+# from django.utils import six
 
 from smart_selects import form_fields
 
@@ -13,7 +13,7 @@ class IntrospectiveFieldMixin(object):
     to_model_name = None
 
     def __init__(self, to, *args, **kwargs):
-        if isinstance(to, six.string_types):
+        if isinstance(to, str):
             if to == RECURSIVE_RELATIONSHIP_CONSTANT:  # to == 'self'
                 # This will be handled in contribute_to_class(), when we have
                 # enough information to set these properly
