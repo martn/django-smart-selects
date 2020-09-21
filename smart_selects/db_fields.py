@@ -3,7 +3,6 @@ from django.db.models.fields.related import (
     ForeignKey, ManyToManyField, RECURSIVE_RELATIONSHIP_CONSTANT
 )
 from django.db import models
-# from django.utils import six
 
 from smart_selects import form_fields
 

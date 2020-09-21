@@ -2,7 +2,7 @@
     // We're declaring global variables, so we cannot use strict mode
     // "use strict";
 
-    chainedfk = function() {
+    window.chainedfk = function () {
         return {
             fireEvent: function (element, event) {
                 var evt, rtn;
@@ -65,7 +65,7 @@
                         } else if (auto_choose === "false" || auto_choose === "False") {
                             auto_choose = false;
                         }
-                        if (auto_choose || (init_value && optionData.value === init_value)) {
+                        if (auto_choose || (init_value && optionData.value == init_value)) {
                             option.prop('selected', true);
                         }
                         options.push(option);
